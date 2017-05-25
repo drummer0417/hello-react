@@ -1,19 +1,9 @@
-var GreaterMessage = React.createClass({
+var React = require('react');
+var ReactDOM = require('react-dom');
 
-  render: function() {
-    var name = this.props.name;
-    var message = this.props.message;
+var GreeterMessage = require('./components/GreeterMessage');
 
-    return (
-      <div>
-        <h1>Hallooootjes {name}!</h1>
-        <p> {message} </p>
-      </div>
-    );
-  }
-});
-
-var GreaterForm = React.createClass({
+var GreeterForm = React.createClass({
   onFormSubmit: function(e) {
     e.preventDefault();
 
@@ -51,7 +41,7 @@ var GreaterForm = React.createClass({
 });
 
 
-var Greater = React.createClass({
+var Greeter = React.createClass({
 
   getDefaultProps: function() {
     return {
@@ -75,8 +65,8 @@ var Greater = React.createClass({
 
     return (
       <div>
-        <GreaterMessage name={name} message={message}/>
-        <GreaterForm onUpdates={this.handleUpdates}/>
+        <GreeterMessage name={name} message={message}/>
+        <GreeterForm onUpdates={this.handleUpdates}/>
       </div>
     );
   }
@@ -84,5 +74,5 @@ var Greater = React.createClass({
 
 var firstName = "Hans"
 ReactDOM.render(
-  <Greater  message="This isn't from te component... or is it?"/>, document.getElementById("app")
+  <Greeter  message="This isn't from te component... or is it?"/>, document.getElementById("app")
 );
